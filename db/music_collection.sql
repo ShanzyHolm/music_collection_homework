@@ -10,5 +10,5 @@ CREATE TABLE albums(
   id SERIAL PRIMARY KEY,
   title VARCHAR(255),
   genre VARCHAR(255),
-  artist_id INT FOREIGN KEY
+  artist_id INT
 );
