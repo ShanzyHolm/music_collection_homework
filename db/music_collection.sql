@@ -12,3 +12,7 @@ CREATE TABLE albums(
   genre VARCHAR(255),
   artist_id INT
 );
+
+-- UPDATE albums SET (genre) = ('rock') WHERE title = 'Music';
+-- UPDATE albums SET (genre) = ('rock') WHERE id = 4;
+-- UPDATE artists SET (name) = ("Elvis Aron Presley") WHERE id = 2;
