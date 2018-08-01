@@ -20,8 +20,10 @@ class Album
     @id = results[0]['id'].to_i()
   end
 
-  def method_name
-
+  def self.all()
+    sql = "SELECT * FROM albums"
+    albums = SqlRunner.run(sql)
+    return albums.map { |album| Album.new(album) }
   end
 
 
