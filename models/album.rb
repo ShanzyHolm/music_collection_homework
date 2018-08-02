@@ -3,8 +3,8 @@ require_relative('../db/sql_runner.rb')
 
 class Album
 
-  attr_reader :id, :artist_id
-  attr_accessor :title, :genre
+  attr_reader :id
+  attr_accessor :title, :genre, :artist_id
 
   def initialize(options)
     @id = options['id'].to_i() if options['id']
@@ -38,6 +38,7 @@ class Album
     values = [@title, @genre, @id]
     SqlRunner.run(sql, values)
   end
+  # UPDATE not working?  Not sure how to enter this in terminal...
 
   def self.find(id)
     sql = "SELECT * FROM albums WHERE id = $1"

@@ -32,8 +32,8 @@ attr_accessor :name
   end
 
   def update()
-    sql = "UPDATE artists SET (name) = ($1) WHERE id = $2"
-    values = [@name]
+    sql = "UPDATE artists SET name = $1 WHERE id = $2"
+    values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -44,6 +44,19 @@ attr_accessor :name
     artist_hash = results.first()
     artist = Artist.new(artist_hash)
     return artist
+  end
+
+  # def self.delete_all()
+  #   sql = "DELETE FROM artists"
+  #   SqlRunner.run(sql)
+  # end
+
+  def delete()
+    # if albums
+      sql = "DELETE FROM artists WHERE id = $1"
+      values = [@id]
+      SqlRunner.run(sql, values)
+    # end
   end
 
 end
